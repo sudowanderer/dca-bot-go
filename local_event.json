@@ -1,10 +1,31 @@
 {
-  "targetAssetParameter": "BTC",
-  "amountParameter": "10",
-  "orderCurrencyParameter": "FDUSD",
-  "balanceThresholdParameter": "5000",
-  "telegramBotTokenParameter": "/myapp/telegram/token",
-  "telegramChatIDParameter": "825939496",
-  "binanceApiKeyParameter": "/myapp/binance/apiKey",
-  "binanceApiSecretParameter": "/myapp/binance/apiSecret"
+  "version": "v2",
+  "exchange": {
+    "name": "binance",
+    "credentials": {
+      "type": "ssm",
+      "config": {
+        "apiKeyPath": "/myapp/binance/apiKey",
+        "apiSecretPath": "/myapp/binance/apiSecret"
+      }
+    }
+  },
+  "strategy": {
+    "symbol": "BTC-FDUSD",
+    "quoteAmount": "10",
+    "balanceThreshold": "5000",
+    "orderType": "market"
+  },
+  "notifications": {
+    "telegram": {
+      "type": "ssm",
+      "config": {
+        "botTokenPath": "/myapp/telegram/token",
+        "chatId": "8259394961"
+      }
+    }
+  },
+  "flags": {
+    "dryRun": true
+  }
 }
